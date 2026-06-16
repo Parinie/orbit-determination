@@ -19,13 +19,13 @@ for i in range(0, len(lines) - 2, 3):
     satellites.append((name, sat))
 
 # Print first 5 satellites to verify
-print(f"Loaded {len(satellites)} satellites\n")
+"""print(f"Loaded {len(satellites)} satellites\n")
 print("First 5 satellites:")
 for name, sat in satellites[:5]:
     print(f"  {name}")
     print(f"    Inclination: {sat.inclo:.4f} rad")
     print(f"    Eccentricity: {sat.ecco:.6f}")
-    print(f"    Mean motion: {sat.no:.6f} rad/min\n")
+    print(f"    Mean motion: {sat.no:.6f} rad/min\n")"""
 
 # Pick the first satellite
 name, sat = satellites[0]
