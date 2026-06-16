@@ -1,6 +1,7 @@
 from sgp4.api import Satrec
 from sgp4.api import jday
 from datetime import datetime
+from orbit_state import orbital_state
 
 # Read TLE file from disk
 with open("gnss.txt", "r") as f:
@@ -42,3 +43,10 @@ print(f" Velocity (ECI): vx={velocity[0]:.3f} km/s, vy={velocity[1]:.3f} km/s, v
 
 distance = (position[0]**2 + position[1]**2 + position[2]**2) ** 0.5
 print(f" Distance from Earth center: {distance:.1f} km")
+
+state = orbital_state(position, velocity)
+print(f"\nOrbital state for {name}:")
+print(f"Specific energy: {state['energy']:.3f} km\u00b2/s\u00b2")
+print(f"  Angular momentum: {state['angular_momentum']:.1f} km\u00b2/s")
+print(f"  Semi-major axis: {state['semi_major_axis']:.1f} km")
+print(f"  Orbital period: {state['period_hours']:.2f} hours")
